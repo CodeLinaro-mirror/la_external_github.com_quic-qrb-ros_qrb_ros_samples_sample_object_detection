@@ -127,8 +127,12 @@ mkdir /opt/model/
 mv yolov8_det_qcs9075.bin /opt/model/
 mv coco.ymal /opt/
 
+# Set up the runtime environment.
+export ADSP_LIBRARY_PATH="/usr/lib/rfsa/adsp;/usr/lib/rfsa/adsp/hexagon-v81"
+export CDSP_LIBRARY_PATH="/vendor/dsp/cdsp0;/usr/lib/rfsa/adsp/hexagon-v81"
+
 source /opt/ros/jazzy/setup.bash
-ros2 launch sample_object_detection launch_with_qrb_ros_camera.py  model:=<the device model>
+ros2 launch sample_object_detection launch_with_qrb_ros_camera_IQ10.py  model:=<the device model>
 ```
 
 The output for these commands:
